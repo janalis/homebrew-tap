@@ -3,8 +3,8 @@
 class RedirectProxy < Formula
   desc "High performance HTTP redirect server with an administration backend"
   homepage "https://github.com/janalis/redirect-proxy"
-  url "https://github.com/janalis/redirect-proxy/releases/download/v0.7.1/redirect-proxy-0.7.1-erlang.tar.gz"
-  sha256 "9e08503f2c1e51722446a4a5e7a4ac7cfcb9b065db38df932316a85e8b6bde49"
+  url "https://github.com/janalis/redirect-proxy/releases/download/v0.7.2/redirect-proxy-0.7.2-erlang.tar.gz"
+  sha256 "10fe2b83a98f026bcf612d1cad9ae7c32292d52f669bdcd260e66688b5fd75c3"
   license "MIT"
 
   depends_on "erlang"
@@ -15,10 +15,16 @@ class RedirectProxy < Formula
     (etc/"redirect-proxy").install libexec/"share/redirect-proxy/config.example.toml" => "config.toml"
   end
 
+  def post_install
+    (var/"lib/redirect-proxy").mkpath
+  end
+
   service do
     run [opt_bin/"redirect-proxy", "serve"]
     environment_variables RP_CONFIG:           etc/"redirect-proxy/config.toml",
                           RP_STORAGE_DATA_DIR: var/"lib/redirect-proxy"
+    # the data directory: an erl_crash.dump lands there, not in /
+    working_dir var/"lib/redirect-proxy"
     keep_alive true
     log_path var/"log/redirect-proxy.log"
     error_log_path var/"log/redirect-proxy.log"
