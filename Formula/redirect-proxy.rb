@@ -3,8 +3,8 @@
 class RedirectProxy < Formula
   desc "High performance HTTP redirect server with an administration backend"
   homepage "https://github.com/janalis/redirect-proxy"
-  url "https://github.com/janalis/redirect-proxy/releases/download/v0.7.3/redirect-proxy-0.7.3-erlang.tar.gz"
-  sha256 "514b19e10f64493d715baf17948a24df85735bd4d50fd906f523a3c787a97b42"
+  url "https://github.com/janalis/redirect-proxy/releases/download/v0.7.4/redirect-proxy-0.7.4-erlang.tar.gz"
+  sha256 "af133d074066d4a148866dd9929c28c0da814794a65aff37886798ebe58c6911"
   license "MIT"
 
   depends_on "erlang"
