@@ -1,9 +1,9 @@
 class Porta < Formula
   desc "Terminal IDE for PHP projects"
   homepage "https://janalis.github.io/porta/"
-  url "https://github.com/janalis/porta/releases/download/v0.2.1/porta.phar"
-  version "0.2.1"
-  sha256 "e717566f1f4d2e49c4f8576642af228eb31137bdc664d0dcdb2855138731cc84"
+  url "https://github.com/janalis/porta/releases/download/v0.2.2/porta.phar"
+  version "0.2.2"
+  sha256 "00d37b3ea9e1ef67fafd4510a6579c8875cf3e6bac92cfda337c3aca24c47220"
   license "MIT"
 
   depends_on "php"
